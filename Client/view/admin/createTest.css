@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #bdcbcc;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 80px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #fff;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.menu li {
+    margin: 0 15px;
+}
+
+.menu a {
+    color: #bdcbcc;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+}
+
+.menu a:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+main {
+    margin-top: 40px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    border-bottom: 2px solid #bdcbcc;
+    padding-bottom: 5px;
+}
+
+form label, form input, form select, form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+form input, form select, form button {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+form button {
+    background-color: #bdcbcc;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #bdcbcc;
+}
+
+.question-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.question-item p {
+    margin: 5px 0;
+}
+
+.question-item button {
+    margin-right: 10px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.question-item button:hover {
+    background-color: #cc0000;
+}
+
+.exam-list .exam-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.exam-list .exam-item p {
+    margin: 5px 0;
+}
+
+.exam-list .exam-item button {
+    background-color: #bdcbcc;
+    color: white;
+   
+}

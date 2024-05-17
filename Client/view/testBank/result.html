@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Luyện Thi</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="../index.html">Giới thiệu</a></li>
+                <li><a href="../testBank.html">Ngân hàng đề thi</a></li>
+                <li><a href="../rank.html">Xếp hạng</a></li>
+                <li><a href="../classRoom.html">Lớp học</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <main>
+            <section class="exam-results">
+                <h2>Kết Quả Thi</h2>
+                <div class="result-summary">
+                    <p>Điểm số: <span id="score">85</span>/100</p>
+                    <p>Thời gian hoàn thành: <span id="completion-time">45 phút</span></p>
+                    <p>Phản hồi: <span id="feedback">Rất tốt! Bạn đã làm đúng phần lớn các câu hỏi.</span></p>
+                </div>
+                <button onclick="sendFeedback()">Gửi phản hồi</button>
+            </section>
+
+            <section class="exam-list">
+                <h2>Danh Sách Bài Thi</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tên Học Sinh</th>
+                            <th>Điểm Số</th>
+                            <th>Thời Gian</th>
+                        </tr>
+                    </thead>
+                    <tbody id="exam-list">
+                        <!-- Data mẫu -->
+                        <tr>
+                            <td>Nguyễn Văn A</td>
+                            <td>85</td>
+                            <td>45 phút</td>
+                        </tr>
+                        <tr>
+                            <td>Trần Thị B</td>
+                            <td>78</td>
+                            <td>50 phút</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="unanswered-questions">
+                <h2>Câu Hỏi Chưa Làm</h2>
+                <ul id="unanswered-list">
+                    <!-- Data mẫu -->
+                    <li>Câu 3: Lorem ipsum dolor sit amet?</li>
+                    <li>Câu 7: Quis autem vel eum iure reprehenderit?</li>
+                </ul>
+            </section>
+
+            <section class="detailed-feedback">
+                <h2>Phản Hồi Chi Tiết</h2>
+                <div id="feedback-details">
+                    <!-- Data mẫu -->
+                    <div class="question-feedback">
+                        <p><strong>Câu 1:</strong> Lorem ipsum dolor sit amet?</p>
+                        <p>Trả lời của bạn: A</p>
+                        <p>Đáp án đúng: B</p>
+                        <p>Phản hồi: Đáp án của bạn chưa chính xác vì...</p>
+                    </div>
+                    <div class="question-feedback">
+                        <p><strong>Câu 2:</strong> Quis autem vel eum iure reprehenderit?</p>
+                        <p>Trả lời của bạn: C</p>
+                        <p>Đáp án đúng: C</p>
+                        <p>Phản hồi: Bạn đã trả lời đúng. Tốt lắm!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function sendFeedback() {
+            alert('Phản hồi đã được gửi!');
+        }
+    </script>
+</body>
+</html>
