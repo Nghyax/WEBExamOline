@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý lớp học</title>
+    <link rel="stylesheet" href="createClass.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quản lý lớp học</h1>
+        <div class="form-container">
+            <h2>Tạo lớp học</h2>
+            <form id="classForm">
+                <label for="className">Tên lớp:</label>
+                <input type="text" id="className" name="className" required>
+                
+                <label for="teacherName">Tên giáo viên:</label>
+                <input type="text" id="teacherName" name="teacherName" required>
+                
+                <label for="studentList">Danh sách học sinh:</label>
+                <textarea id="studentList" name="studentList" rows="5" required></textarea>
+                
+                <button type="submit">Tạo lớp</button>
+            </form>
+        </div>
+        <div class="result-container">
+            <h2>Kết quả tạo lớp học</h2>
+            <ul id="classes"></ul>
+        </div>
+    </div>
+
+    <script src="createClass.js"></script>
+</body>
+</html>

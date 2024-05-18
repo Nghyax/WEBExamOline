@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="teacher.css">
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="../index.html">Giới thiệu</a></li>
+                <li><a href="../testBank.html">Ngân hàng đề thi</a></li>
+                <li><a href="../rank.html">Xếp hạng</a></li>
+                <li><a href="../Class.html">Lớp học</a></li>
+                <li><a href="teacher.html">Giáo viên</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="sidebar">
+        <h2>Giáo viên</h2>
+        <ul>
+            <li onclick="showSection('dashboard')">Dashboard</li>
+            <li onclick="showSection('exam-management')"> Quản lý đề thi</li>
+            <li onclick="showSection('class-management')">Quản lý lớp học</li>
+            <li onclick="showSection('resource-configuration')">Cấu hình tài nguyên</li>
+            <li onclick="showSection('exam-room-creation')">Tạo phòng thi</li>
+            <li onclick="showSection('student-management')">Quản lý học sinh</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div id="dashboard" class="content-section">
+            <h1>Giáo viên</h1>
+            <p>Trang quản trị dành cho giáo viên</p>
+            <!-- Sample Data for Dashboard -->
+            <table>
+                <tr>
+                    <th>Tiêu chí</th>
+                    <th>Giá trị</th>
+                </tr>
+                <tr>
+                    <td>Tổng học sinh</td>
+                    <td>120</td>
+                </tr>
+                <tr>
+                    <td>Tổng số bài thi</td>
+                    <td>45</td>
+                </tr>
+                <tr>
+                    <td>Lớp học</td>
+                    <td>8</td>
+                </tr>
+            </table>
+        </div>
+        <div id="exam-management" class="content-section">
+            <h1>Quản lý đề thi</h1>
+            <!-- Sample Data for Exam Management -->
+            <a href="createTest.html">
+                <button>Tạo đề thi</button>
+            </a>
+            <table>
+                <tr>
+                    <th>ID đề thi</th>
+                    <th>Tên bài thi</th>
+                    <th>Ngày hiệu lực</th>
+                </tr>
+                <tr>
+                    <td>001</td>
+                    <td>Toán lớP 6 - giữa kỳ</td>
+                    <td>2024-05-20</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Toán lớP 8 - giữa kỳ</td>
+                    <td>2024-06-15</td>
+                </tr>
+            </table>
+        </div>
+        <div id="class-management" class="content-section">
+            <h1>Quản lý lớp học</h1>
+            <!-- Sample Data for Class Management -->
+            <table>
+                <tr>
+                    <th>ID lớp học</th>
+                    <th>Tên lớp học</th>
+                    <th>Giáo viên</th>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>Toán 101</td>
+                    <td>Ellie Bui</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Khoa học 102</td>
+                    <td>Hoàng Tử Thao</td>
+                </tr>
+            </table>
+        </div>
+        <div id="resource-configuration" class="content-section">
+            <h1>Cấu hình tài nguyên</h1>
+            <p>Cấu hình tài nguyên lớp học như: học sinh, phòng thi, loại đề thi.</p>
+            <!-- Sample Data for Resource Configuration -->
+            <table>
+                <tr>
+                    <th>Học sinh</th>
+                    <th>Lớp học</th>
+                    <th>Phòng thi</th>
+                </tr>
+                <tr>
+                    <td>200</td>
+                    <td>30</td>
+                    <td>40</td>
+                </tr>
+                
+            </table>
+        </div>
+        <div id="exam-room-creation" class="content-section">
+            <h1>Tạo phòng thi</h1>
+            <!-- Sample Data for Exam Room Creation -->
+            <table>
+                <tr>
+                    <th> ID phòng thi</th>
+                    <th>Tên phòng</th>
+                    <th>Số lượng học sinh</th>
+                </tr>
+                <tr>
+                    <td>RM01</td>
+                    <td>Phòng A</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>RM02</td>
+                    <td>Phòng B</td>
+                    <td>50</td>
+                </tr>
+            </table>
+        </div>
+        <div id="student-management" class="content-section">
+            <h1>Quản lý học sinh</h1>
+            <!-- Sample Data for Student Management -->
+            <table>
+                <tr>
+                    <th>Mã học sinh</th>
+                    <th>Họ và tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Lớp</th>
+                </tr>
+                <tr>
+                    <td>S001</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>01/01/2001</td>
+                    <td>Toán 101</td>
+                </tr>
+                <tr>
+                    <td>S001</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>01/01/2001</td>
+                    <td>Toán 101</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+        // Show the dashboard section by default
+        showSection('dashboard');
+    </script>
+</body>
+</html>
