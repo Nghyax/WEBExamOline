@@ -1,263 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tạo Đề Thi</title>
     <link rel="stylesheet" href="createTest.css">
 </head>
+
 <body>
     <div style="display: flex;">
-    <div class="sidebar">
-        <h2>Admin Menu</h2>
-        <ul>
-            <li onclick="showSection('dashboard')">Dashboard</li>
-            <li onclick="showSection('exam-management')">Quản lý đề thi</li>
-            <li onclick="showSection('class-management')">Quản lý lớp học</li>
-            <li onclick="showSection('resource-configuration')">Cấu hình tài nguyên</li>
-            <li onclick="showSection('exam-room-creation')">Tạo phòng thi</li>
-            <li onclick="showSection('student-management')">Quản lý học sinh</li>
-        </ul>
-    </div>
-    
-    <div class="container">
-        <header>
-            <nav>
-                <ul class="menu">
-                    <li><a href="../index.html">Giới thiệu</a></li>
-                    <li><a href="../testBank.html">Ngân hàng đề thi</a></li>
-                    <li><a href="../rank.html">Xếp hạng</a></li>
-                    <li><a href="../Class.html">Lớp học</a></li>
-                    <li><a href="teacher.html">Giáo viên</a></li>
-                </ul>
-            </nav>
-        </header>
-        
-        <main>
-            <section id="Detail-exam" class="content-section">
-                <h2>Tạo Đề Thi</h2>
-                <form id="exam-form">
-                    <label for="exam-title">Tiêu Đề Đề Thi:</label>
-                    <input type="text" id="exam-title" name="exam-title" required>
-
-                    <label for="exam-subject">Môn Học:</label>
-                    <input type="text" id="exam-subject" name="exam-subject" required>
-
-                    <label for="exam-type">Loại Đề Thi:</label>
-                    <select id="exam-type" name="exam-type">
-                        <option value="public">Công Khai</option>
-                        <option value="private">Riêng Tư</option>
-                    </select>
-
-                    <label for="exam-category">Chủ Đề:</label>
-                    <input type="text" id="exam-category" name="exam-category" required>
-
-                    <label for="exam-section">Phần:</label>
-                    <input type="text" id="exam-section" name="exam-section">
-
-                    <button type="button" onclick="addQuestion()">Thêm Câu Hỏi</button>
-                </form>
-
-                <div id="question-list">
-                    <h3>Danh Sách Câu Hỏi</h3>
-                    <!-- Data mẫu -->
-                    <div class="question-item">
-                        <p><strong>Câu 1:</strong> Lorem ipsum dolor sit amet?</p>
-                        <button onclick="editQuestion(this)">Sửa</button>
-                        <button onclick="deleteQuestion(this)">Xóa</button>
-                    </div>
-                    <div class="question-item">
-                        <p><strong>Câu 2:</strong> Quis autem vel eum iure reprehenderit?</p>
-                        <button onclick="editQuestion(this)">Sửa</button>
-                        <button onclick="deleteQuestion(this)">Xóa</button>
-                    </div>
-                </div>
-
-                <h3>Import Câu Hỏi Trắc Nghiệm</h3>
-                <button onclick="downloadTemplate()">Tải File Template</button>
-                <input type="file" id="import-file" name="import-file">
-                <button onclick="importQuestions()">Import Câu Hỏi</button>
-            </section>
-
-            <section id="de-thi-cong-khai" class="public-exams">
-                <h2>Đề Thi Công Khai</h2>
-                <div class="exam-list">
-                    <!-- Data mẫu -->
-                    <div class="exam-item">
-                        <p><strong>Tiêu Đề:</strong> Đề Thi Toán 1</p>
-                        <p><strong>Môn Học:</strong> Toán</p>
-                        <p><strong>Số Lượt Thi:</strong> 120</p>
-                        <button>Tải Xuống</button>
-                    </div>
-                    <div class="exam-item">
-                        <p><strong>Tiêu Đề:</strong> Đề Thi Văn 1</p>
-                        <p><strong>Môn Học:</strong> Văn</p>
-                        <p><strong>Số Lượt Thi:</strong> 98</p>
-                        <button>Tải Xuống</button>
-                    </div>
-                </div>
-            </section>
-
-            <section id="de-thi-ca-nhan" class="private-exams">
-                <h2>Đề Thi Cá Nhân</h2>
-                <div class="exam-list">
-                    <!-- Data mẫu -->
-                    <div class="exam-item">
-                        <p><strong>Tiêu Đề:</strong> Đề Thi Lịch Sử 1</p>
-                        <p><strong>Môn Học:</strong> Lịch Sử</p>
-                        <p><strong>Số Lượt Thi:</strong> 45</p>
-                        <button>Tải Xuống</button>
-                    </div>
-                    <div class="exam-item">
-                        <p><strong>Tiêu Đề:</strong> Đề Thi Địa Lý 1</p>
-                        <p><strong>Môn Học:</strong> Địa Lý</p>
-                        <p><strong>Số Lượt Thi:</strong> 60</p>
-                        <button>Tải Xuống</button>
-                    </div>
-                </div>
-            </section>
-
-            <section id="tim-kiem-de-thi" class="search-exams">
-                <h2>Tìm Kiếm Đề Thi</h2>
-                <form id="search-form">
-                    <label for="search-keyword">Từ Khóa:</label>
-                    <input type="text" id="search-keyword" name="search-keyword" required>
-                    <button type="submit">Tìm Kiếm</button>
-                </form>
-                <div id="search-results">
-                    <h3>Kết Quả Tìm Kiếm</h3>
-                    <!-- Data mẫu -->
-                    <div class="exam-item">
-                        <p><strong>Tiêu Đề:</strong> Đề Thi Sinh Học 1</p>
-                        <p><strong>Môn Học:</strong> Sinh Học</p>
-                        <p><strong>Số Lượt Thi:</strong> 70</p>
-                        <button>Tải Xuống</button>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <div id="exam-management" class="content-section">
-            <h1>Quản lý đề thi</h1>
-            <!-- Sample Data for Exam Management -->
-            <a href="createTest.html">
-                <button>Tạo đề thi</button>
-            </a>
-            <table>
-                <tr>
-                    <th>ID đề thi</th>
-                    <th>Tên bài thi</th>
-                    <th>Ngày hiệu lực</th>
-                </tr>
-                <tr>
-                    <td>001</td>
-                    <td>Toán lớP 6 - giữa kỳ</td>
-                    <td>2024-05-20</td>
-                </tr>
-                <tr>
-                    <td>002</td>
-                    <td>Toán lớP 8 - giữa kỳ</td>
-                    <td>2024-06-15</td>
-                </tr>
-            </table>
+        <div class="sidebar">
+            <h2>Admin Menu</h2>
+            <ul>
+                <li onclick="showSection('dashboard')">Dashboard</li>
+                <li onclick="showSection('exam-management')">Quản lý đề thi</li>
+                <li onclick="showSection('class-management')">Quản lý lớp học</li>
+                <li onclick="showSection('resource-configuration')">Cấu hình tài nguyên</li>
+                <li onclick="showSection('exam-room-creation')">Tạo phòng thi</li>
+                <li onclick="showSection('student-management')">Quản lý học sinh</li>
+            </ul>
         </div>
-        <div id="class-management" class="content-section">
-            <h1>Quản lý lớp học</h1>
-            <!-- Sample Data for Class Management -->
-            <table>
-                <tr>
-                    <th>ID lớp học</th>
-                    <th>Tên lớp học</th>
-                    <th>Giáo viên</th>
-                </tr>
-                <tr>
-                    <td>101</td>
-                    <td>Toán 101</td>
-                    <td>Ellie Bui</td>
-                </tr>
-                <tr>
-                    <td>102</td>
-                    <td>Khoa học 102</td>
-                    <td>Hoàng Tử Thao</td>
-                </tr>
-            </table>
-        </div>
-        <div id="resource-configuration" class="content-section">
-            <h1>Cấu hình tài nguyên</h1>
-            <p>Cấu hình tài nguyên lớp học như: học sinh, phòng thi, loại đề thi.</p>
-            <!-- Sample Data for Resource Configuration -->
-            <table>
-                <tr>
-                    <th>Học sinh</th>
-                    <th>Lớp học</th>
-                    <th>Phòng thi</th>
-                </tr>
-                <tr>
-                    <td>200</td>
-                    <td>30</td>
-                    <td>40</td>
-                </tr>
+
+        <div class="container">
+            <header>
+                <nav>
+                    <ul class="menu">
+                        <li><a href="../index.html">Giới thiệu</a></li>
+                        <li><a href="../testBank.html">Ngân hàng đề thi</a></li>
+                        <li><a href="../rank.html">Xếp hạng</a></li>
+                        <li><a href="../Class.html">Lớp học</a></li>
+                        <li><a href="teacher.html">Giáo viên</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <section id="Detail-exam" class="">
+                    <h3>Import Câu Hỏi Trắc Nghiệm</h3>
+                    <button onclick="downloadTemplate()">Tải File Template</button>
+                    <input type="file" id="import-file" name="import-file">
+                    <button onclick="importQuestions()">Import Câu Hỏi</button>
+                    <h2>Tạo Đề Thi</h2>
+                    <form id="exam-form">
+                        <label for="exam-title">Tiêu Đề Đề Thi:</label>
+                        <input type="text" id="exam-title" name="exam-title" required>
+
+                        <label for="exam-subject">Môn Học:</label>
+                        <input type="text" id="exam-subject" name="exam-subject" required>
+
+                        <label for="exam-type">Loại Đề Thi:</label>
+                        <select id="exam-type" name="exam-type">
+                            <option value="public">Công Khai</option>
+                            <option value="private">Riêng Tư</option>
+                        </select>
+
+                        <label for="exam-category">Chủ Đề:</label>
+                        <input type="text" id="exam-category" name="exam-category" required>
+
+                        <label for="exam-section">Phần:</label>
+                        <input type="text" id="exam-section" name="exam-section">
+
+                        <button type="button" onclick="addQuestion()">Thêm Câu Hỏi</button>
+                    </form>
+
+                    <div id="question-list">
+                        <h3>Danh Sách Câu Hỏi</h3>
+                        <!-- Data mẫu -->
+                        <div class="question-item">
+                            <p><strong>Câu 1:</strong> Lorem ipsum dolor sit amet?</p>
+                            <button onclick="editQuestion(this)">Sửa</button>
+                            <button onclick="deleteQuestion(this)">Xóa</button>
+                        </div>
+                        <div class="question-item">
+                            <p><strong>Câu 2:</strong> Quis autem vel eum iure reprehenderit?</p>
+                            <button onclick="editQuestion(this)">Sửa</button>
+                            <button onclick="deleteQuestion(this)">Xóa</button>
+                        </div>
+                    </div>
+
+
+                </section>
+
                 
-            </table>
+            </main>
+            <div id="exam-management" class="content-section">
+                <h1>Quản lý đề thi</h1>
+                <!-- Sample Data for Exam Management -->
+                <a href="createTest.html">
+                    <button>Tạo đề thi</button>
+                </a>
+                <table>
+                    <tr>
+                        <th>ID đề thi</th>
+                        <th>Tên bài thi</th>
+                        <th>Ngày hiệu lực</th>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>Toán lớP 6 - giữa kỳ</td>
+                        <td>2024-05-20</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Toán lớP 8 - giữa kỳ</td>
+                        <td>2024-06-15</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="class-management" class="content-section">
+                <h1>Quản lý lớp học</h1>
+                <!-- Sample Data for Class Management -->
+                <table>
+                    <tr>
+                        <th>ID lớp học</th>
+                        <th>Tên lớp học</th>
+                        <th>Giáo viên</th>
+                    </tr>
+                    <tr>
+                        <td>101</td>
+                        <td>Toán 101</td>
+                        <td>Ellie Bui</td>
+                    </tr>
+                    <tr>
+                        <td>102</td>
+                        <td>Khoa học 102</td>
+                        <td>Hoàng Tử Thao</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="resource-configuration" class="content-section">
+                <h1>Cấu hình tài nguyên</h1>
+                <p>Cấu hình tài nguyên lớp học như: học sinh, phòng thi, loại đề thi.</p>
+                <!-- Sample Data for Resource Configuration -->
+                <table>
+                    <tr>
+                        <th>Học sinh</th>
+                        <th>Lớp học</th>
+                        <th>Phòng thi</th>
+                    </tr>
+                    <tr>
+                        <td>200</td>
+                        <td>30</td>
+                        <td>40</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div id="exam-room-creation" class="content-section">
+                <h1>Tạo phòng thi</h1>
+                <!-- Sample Data for Exam Room Creation -->
+                <table>
+                    <tr>
+                        <th> ID phòng thi</th>
+                        <th>Tên phòng</th>
+                        <th>Số lượng học sinh</th>
+                    </tr>
+                    <tr>
+                        <td>RM01</td>
+                        <td>Phòng A</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>RM02</td>
+                        <td>Phòng B</td>
+                        <td>50</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="student-management" class="content-section">
+                <h1>Quản lý học sinh</h1>
+                <!-- Sample Data for Student Management -->
+                <table>
+                    <tr>
+                        <th>Mã học sinh</th>
+                        <th>Họ và tên</th>
+                        <th>Ngày sinh</th>
+                        <th>Lớp</th>
+                    </tr>
+                    <tr>
+                        <td>S001</td>
+                        <td>Nguyễn Văn A</td>
+                        <td>01/01/2001</td>
+                        <td>Toán 101</td>
+                    </tr>
+                    <tr>
+                        <td>S001</td>
+                        <td>Nguyễn Văn A</td>
+                        <td>01/01/2001</td>
+                        <td>Toán 101</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div id="exam-room-creation" class="content-section">
-            <h1>Tạo phòng thi</h1>
-            <!-- Sample Data for Exam Room Creation -->
-            <table>
-                <tr>
-                    <th> ID phòng thi</th>
-                    <th>Tên phòng</th>
-                    <th>Số lượng học sinh</th>
-                </tr>
-                <tr>
-                    <td>RM01</td>
-                    <td>Phòng A</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>RM02</td>
-                    <td>Phòng B</td>
-                    <td>50</td>
-                </tr>
-            </table>
-        </div>
-        <div id="student-management" class="content-section">
-            <h1>Quản lý học sinh</h1>
-            <!-- Sample Data for Student Management -->
-            <table>
-                <tr>
-                    <th>Mã học sinh</th>
-                    <th>Họ và tên</th>
-                    <th>Ngày sinh</th>
-                    <th>Lớp</th>
-                </tr>
-                <tr>
-                    <td>S001</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>01/01/2001</td>
-                    <td>Toán 101</td>
-                </tr>
-                <tr>
-                    <td>S001</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>01/01/2001</td>
-                    <td>Toán 101</td>
-                </tr>
-            </table>
-        </div>
+        <script>
+            function showSection(sectionId) {
+                const sections = document.querySelectorAll('.content-section');
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.getElementById(sectionId).style.display = 'block';
+            }
+            // Show the dashboard section by default
+            showSection('dashboard');
+        </script>
     </div>
-    <script>
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                section.style.display = 'none';
-            });
-            document.getElementById(sectionId).style.display = 'block';
-        }
-        // Show the dashboard section by default
-        showSection('dashboard');
-    </script>
     </div>
-</div>
 
     <script>
         function addQuestion() {
@@ -288,7 +236,7 @@
                 ["Ví dụ câu hỏi 1", "A", "B", "C", "D", "A", "Giải thích cho câu hỏi 1"]
             ];
             let csvContent = "data:text/csv;charset=utf-8,";
-            template.forEach(function(rowArray) {
+            template.forEach(function (rowArray) {
                 let row = rowArray.join(",");
                 csvContent += row + "\r\n";
             });
@@ -307,7 +255,7 @@
             const file = fileInput.files[0];
             const reader = new FileReader();
 
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 const text = e.target.result;
                 const rows = text.split('\n');
                 rows.forEach((row, index) => {
@@ -344,4 +292,5 @@
         }
     </script>
 </body>
+
 </html>

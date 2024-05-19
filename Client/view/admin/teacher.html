@@ -58,9 +58,25 @@
         <div id="exam-management" class="content-section">
             <h1>Quản lý đề thi</h1>
             <!-- Sample Data for Exam Management -->
-            <a href="createTest.html">
-                <button>Tạo đề thi</button>
-            </a>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <form id="search-form" style="display: flex; justify-content: space-between; align-items: center;">
+                        <input type="text" id="search-keyword" name="search-keyword" style="width: 400px;  margin: 0px 15px;">
+                        <button type="submit" style="width: 110px; margin: 0px 15px;">Tìm Kiếm</button>
+                </form>   
+                <a href="createTest.html">
+                        <button>Tạo đề thi</button>
+                </a>
+            </div>
+            <div id="search-results">
+                <h3>Kết Quả Tìm Kiếm</h3>
+                <!-- Data mẫu -->
+                <div class="exam-item">
+                    <p><strong>Tiêu Đề:</strong> Đề Thi Sinh Học 1</p>
+                    <p><strong>Môn Học:</strong> Sinh Học</p>
+                    <p><strong>Số Lượt Thi:</strong> 70</p>
+                    <button>Tải Xuống</button>
+                </div>
+            </div>
             <table>
                 <tr>
                     <th>ID đề thi</th>
